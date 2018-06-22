@@ -8,12 +8,12 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  get '/posts/new' do
+  get '/posts/new' do #Goes to the /new url and allows user to create a new post
     erb :new
   end
 
   post '/posts' do
-    @post = Post.create(params)
+    @post = Post.create(params) #Displays all of the posts
     redirect to '/posts'
   end
 
