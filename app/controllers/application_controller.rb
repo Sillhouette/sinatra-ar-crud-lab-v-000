@@ -17,12 +17,12 @@ class ApplicationController < Sinatra::Base
     redirect to '/posts'
   end
 
-  get '/posts' do 
+  get '/posts' do
     @posts = Post.all
     erb :index
   end
 
-  get '/posts/:id' do  
+  get '/posts/:id' do
     @post = Post.find_by_id(params[:id])
     erb :show
   end
@@ -32,7 +32,7 @@ class ApplicationController < Sinatra::Base
     erb :edit
   end
 
-  patch '/posts/:id' do 
+  patch '/posts/:id' do
     @post = Post.find_by_id(params[:id])
     @post.name = params[:name]
     @post.content = params[:content]
